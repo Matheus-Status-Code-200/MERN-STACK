@@ -1,0 +1,29 @@
+# Arquivos de compilação e objetos
+*.o
+*.out
+*.exe
+
+# Arquivos gerados pelo ambiente de desenvolvimento
+.vscode
+.idea
+
+# Dependências e bibliotecas de terceiros
+/node_modules
+vendor
+
+# Arquivos de configuração sensíveis
+.env
+config.json
+
+# Arquivos de registro e saída
+logs/
+*.log
+
+
+# Arquivos temporários
+.tmp/
+temp/
+
+# Outros arquivos e diretórios específicos do projeto
+arquivo-especifico.txt
+diretorio-especifico/
