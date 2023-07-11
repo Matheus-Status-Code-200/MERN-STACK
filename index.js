@@ -8,6 +8,6 @@ app.get('/user', function(req, res) {
     res.send('Hello tety!!')
 })
 app.get('/home', function(req, res) {
-    res.send('Homes!!')
+    res.send('Home!!')
 })
 app.listen(3000)
