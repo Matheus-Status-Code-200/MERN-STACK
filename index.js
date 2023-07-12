@@ -1,13 +1,12 @@
 const express = require('express')
 const app = express()
+const userRoute = require("./src/routes/user.route")
 
-app.get('/', function(req, res) {
-    res.send('Hello World')
-})
-app.get('/user', function(req, res) {
-    res.send('Hello tety!!')
-})
-app.get('/home', function(req, res) {
-    res.send('Home!!')
-})
-app.listen(3000)
+const port = 3000
+app.use(express.json());
+
+app.use('/user', userRoute);
+
+
+
+app.listen(port, () => console.log(`Servdor rodando na porta ${port}`));
