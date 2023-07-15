@@ -7,6 +7,4 @@ app.use(express.json());
 
 app.use('/user', userRoute);
 
-
-
 app.listen(port, () => console.log(`Servdor rodando na porta ${port}`));
