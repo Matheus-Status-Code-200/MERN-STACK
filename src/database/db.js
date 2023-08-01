@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 
 const connectDatabase = () => {
     console.log("Wait connecting DB.");
-    console.log("dados :" + apiUser + "" + dbPassword)
     mongoose.connect(
             `mongodb+srv://${apiUser}:${dbPassword}@cluster0.mppsakt.mongodb.net/?retryWrites=true&w=majority`, {
                 useUnifiedTopology: true
