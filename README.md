@@ -23,6 +23,6 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 
 ## Configuração
 
-1. Clone o repositório:
+# Clone o repositório:
 
    git clone https://github.com/Matheus-Status-Code-200/MERN-STACK.git
