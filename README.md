@@ -21,8 +21,6 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 - `backend/`: Contém o código do servidor Node.js com o Express.
 - `frontend/`: Contém o código do cliente React.
 
-## Configuração
-
-# Clone o repositório:
+## Clone o repositório:
 
    git clone https://github.com/Matheus-Status-Code-200/MERN-STACK.git
