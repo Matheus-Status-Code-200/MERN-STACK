@@ -11,7 +11,7 @@ const connectDatabase = () => {
                 useUnifiedTopology: true
             })
         .then(() => console.log("CONNECTEDY MONGODB...."))
-        .catch((error) => console.log("CONNECTEDY MONGODB: " + error))
+        .catch((error) => console.log("ERROR CONNECTEDY MONGODB: " + error))
 };
 
 module.exports = connectDatabase;

@@ -1,4 +1,5 @@
 const userService = require("../services/user.service");
+
 const create = async(req, res) => {
     const { name, userName, email, passoword, avatar, backgroud } = req.body;
     if (!name || !userName || !email || !passoword || !avatar || !backgroud) {
@@ -6,7 +7,7 @@ const create = async(req, res) => {
             message: "Some field is incorrect!"
         })
     }
-    const user = await userService.create(req.body)
+    const user = await userService.createService(req.body)
 
     if (!user) {
         return res.status(400).send({
@@ -27,13 +28,10 @@ const create = async(req, res) => {
 }
 
 const findAll = async(req, res) => {
-
-    try {
-        let users = await userService.findAllService()
-        return res.json({ "users": users })
-    } catch (err) {
-        console.log("Error", err);
-        throw new Error('Something went wrong')
-    };
+    const users = await userService.findAllService();
+    if (users.length === 0) {
+        return res.status(503).send({ "message": "No Users found" })
+    }
+    res.send({ users })
 }
 module.exports = { create, findAll }
