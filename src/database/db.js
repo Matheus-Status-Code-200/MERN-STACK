@@ -10,7 +10,7 @@ const connectDatabase = () => {
             `mongodb+srv://${apiUser}:${dbPassword}@cluster0.mppsakt.mongodb.net/?retryWrites=true&w=majority`, {
                 useUnifiedTopology: true
             })
-        .then(() => console.log("CONNECTEDY MONGODB...."))
+        .then(() => console.log('\x1b[32m', "CONNECTEDY MONGODB ATLAS....", '\x1b[0m'))
         .catch((error) => console.log("ERROR CONNECTEDY MONGODB: " + error))
 };
 
