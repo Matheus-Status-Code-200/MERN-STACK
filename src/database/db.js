@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 if (!process.env.DB_USER || !process.env.DB_PASSWORD) {
-    console.error('Missing DB_USER or DB_PASSWORD in .env file.');
+    console.error('DB_USER ou DB_PASSWORD não encontrados no arquivo .env.');
     process.exit(1);
 }
 
