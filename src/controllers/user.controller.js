@@ -1,23 +1,24 @@
 const userService = require("../services/user.service");
 
 const create = async(req, res) => {
-    const { name, userName, email, passoword, avatar, backgroud } = req.body;
-    if (!name || !userName || !email || !passoword || !avatar || !backgroud) {
-        res.status(400).send({
-            message: "Some field is incorrect!"
-        })
-    }
-    const user = await userService.createService(req.body)
 
-    if (!user) {
+    const { name, userName, email, password, avatar, backgroud } = req.body;
+    if (!name || !userName || !email || !password || !avatar || !backgroud) {
         return res.status(400).send({
-            message: "Erro ao criar o usuário!"
+            message: "Preencha corretamente todos os campos!"
         })
     }
+    //const user = await userService.createService(req.body)
+
+    /* if (!user) {
+        return res.status(400).send({
+            message: "Error ao criar o usuário!"
+        })
+    } */
     res.status(201).send({
         message: "Successfully registered user!",
         user: {
-            id: user._id,
+            /* id: user._id, */
             name,
             userName,
             email,

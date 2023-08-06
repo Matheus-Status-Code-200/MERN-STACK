@@ -1,17 +1,27 @@
 require('dotenv').config();
-const apiUser = process.env.DB_USER;
+
+if (!process.env.DB_USER || !process.env.DB_PASSWORD) {
+    console.error('Missing DB_USER or DB_PASSWORD in .env file.');
+    process.exit(1);
+}
+
+const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
-const debugMode = process.env.DEBUG === 'true';
+
+
 const mongoose = require("mongoose");
 
+
 const connectDatabase = () => {
-    console.log("Wait connecting DB.");
-    mongoose.connect(
-            `mongodb+srv://${apiUser}:${dbPassword}@cluster0.mppsakt.mongodb.net/?retryWrites=true&w=majority`, {
-                useUnifiedTopology: true
+    console.log("Conectando ao MongoDB Atlas espere.");
+    mongoose
+        .connect(
+            `mongodb+srv://${dbUser}:${dbPassword}@mynews.3ugwwlk.mongodb.net/?retryWrites=true&w=majority`, {
+                useUnifiedTopology: true,
+                serverSelectionTimeoutMS: 5000
             })
-        .then(() => console.log('\x1b[32m', "CONNECTEDY MONGODB ATLAS....", '\x1b[0m'))
-        .catch((error) => console.log("ERROR CONNECTEDY MONGODB: " + error))
+        .then(() => console.log("Conectado ao MongoDB Atlas...."))
+        .catch((error) => console.error("ERRO DE CONCÇÃO COM O MONGODB: ", error));
 };
 
 module.exports = connectDatabase;
