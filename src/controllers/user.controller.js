@@ -3,22 +3,47 @@ const userService = require("../services/user.service");
 const create = async(req, res) => {
 
     const { name, userName, email, password, avatar, backgroud } = req.body;
-    if (!name || !userName || !email || !password || !avatar || !backgroud) {
+    if (!name) {
         return res.status(400).send({
-            message: "Preencha corretamente todos os campos!"
+            message: "Preencha nome!"
         })
     }
-    //const user = await userService.createService(req.body)
+    if (!userName) {
+        return res.status(400).send({
+            message: "Preencha userName!"
+        })
+    }
+    if (!email) {
+        return res.status(400).send({
+            message: "Preencha o email!"
+        })
+    }
+    if (!password) {
+        return res.status(400).send({
+            message: "Preencha o password!"
+        })
+    }
+    if (!avatar) {
+        return res.status(400).send({
+            message: "Preencha o avatar!"
+        })
+    }
+    if (!backgroud) {
+        return res.status(400).send({
+            message: "Preencha o backgroud!"
+        })
+    }
+    const user = await userService.createService(req.body)
 
-    /* if (!user) {
+    if (!user) {
         return res.status(400).send({
             message: "Error ao criar o usuário!"
         })
-    } */
+    }
     res.status(201).send({
-        message: "Successfully registered user!",
+        message: "Sucesso usuario registrado!",
         user: {
-            /* id: user._id, */
+            id: user._id,
             name,
             userName,
             email,
